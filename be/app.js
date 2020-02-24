@@ -3,24 +3,15 @@ const bodyParser = require("body-parser");
 var cors = require('cors');
 
 //*** Class Definition for Initiating the server ***
-class Server {
+class App {
 
 	//*** Constructor ***
 	constructor() {
 		this.app = express();
 		this.app.use(cors());
-		this.initExpress();
 		this.initExpressMiddleWare();
-		this.initControllers();
-		this.start();
+		this.initRoutes();
 	}
-
-
-	//*** Initilization of the Express framework ***
-	initExpress() {
-		this.app.set("port", 8000);
-	}
-
 
 	//*** Initialization of the middleware modules ***
 	initExpressMiddleWare() {
@@ -29,19 +20,11 @@ class Server {
 	}
 
 
-	//*** Initilization of all the controllers ***
-	initControllers() {
+	//*** Initilization of all the Routes ***
+	initRoutes() {
 
     }
 
-
-	//*** Starting the REST Api application ***
-	start() {
-		this.app.listen(this.app.get("port"), () => {
-			console.log(`Server Listening on port: ${this.app.get("port")}`);
-		});
-	}
-
 }
 
-new Server();
+module.exports = new App();
