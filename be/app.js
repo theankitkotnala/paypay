@@ -1,29 +1,29 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-var cors = require('cors');
+const cors = require('cors');
+const AdminRoutes = require('./routes/admin');
 
 //*** Class Definition for Initiating the server ***
 class App {
 
 	//*** Constructor ***
 	constructor() {
-		this.app = express();
-		this.app.use(cors());
+		this.express = express();
+		this.express.use(cors());
 		this.initExpressMiddleWare();
 		this.initRoutes();
 	}
 
 	//*** Initialization of the middleware modules ***
 	initExpressMiddleWare() {
-		this.app.use(bodyParser.urlencoded({ extended: true }));
-		this.app.use(bodyParser.json());
+		this.express.use(bodyParser.urlencoded({ extended: true }));
+		this.express.use(bodyParser.json());
 	}
-
 
 	//*** Initilization of all the Routes ***
 	initRoutes() {
-
-    }
+		this.express.use(process.env.APP_REST_BASE_URL, AdminRoutes)
+	}
 
 }
 
