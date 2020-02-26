@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const AdminRoutes = require('./routes/admin');
+const AuthRoutes = require('./routes/auth');
 
 //*** Class Definition for Initiating the server ***
 class App {
@@ -22,7 +23,7 @@ class App {
 
 	//*** Initilization of all the Routes ***
 	initRoutes() {
-		this.express.use(process.env.APP_REST_BASE_URL, AdminRoutes)
+		this.express.use(process.env.APP_REST_BASE_URL, AuthRoutes);
 	}
 
 }

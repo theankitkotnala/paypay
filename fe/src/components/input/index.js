@@ -8,6 +8,7 @@ const Input = props => {
             onChange={e => setValue(e.target.value)}
             value={value}
             placeholder={props.placeholder}
+            ref={props.inputRef}
         />
     )
 }

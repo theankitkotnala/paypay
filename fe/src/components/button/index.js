@@ -4,7 +4,7 @@ import './style.scss';
 const Button = props => {
     return <button 
             className={props.class ? props.class : 'success'} 
-            onClick={props.onButtonClick}>
+            onClick={props.onClick}>
         {props.text}
     </button>
 }

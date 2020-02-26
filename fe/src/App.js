@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from './components/button';
 import Login from './components/common/login';
 
 class App extends Component {
